@@ -56,5 +56,17 @@ describe('every', () => {
   
     expect(actual).toEqual(expected);
   });
+
+  it('takes an array and a callback and returns true if every item in the array is true, otherwise returns false.', () => {
+    const callback = (item) => {
+      if(item.startsWith('b') === true)
+        return true;
+    };
+    const arr = ['rob', 'ben'];
+    const expected = false;
+    const actual = every(arr, callback);
+  
+    expect(actual).toEqual(expected);
+  });
 });
 

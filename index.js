@@ -20,10 +20,10 @@ const filter = (array, callback) => {
 };
 
 const findIndex = (array, callback) => {
+  let index = 0;
   for(const item of array){
-    if(callback(item) === true)
-      return array.length[item];
-    //else return -1;
+    if(callback(item) !== true)
+      index++;
   }
 };
 
