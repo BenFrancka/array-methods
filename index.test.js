@@ -14,6 +14,7 @@ describe('map', () => {
     const actual = map(arr, callback);
 
     expect(actual).toEqual(expected);
+    expect(arr).toEqual(arr);
   });
 });
 
@@ -47,17 +48,7 @@ describe('findIndex', () => {
 
 describe('reduce', () => {
   it('takes an array, callback, and initial value that is the starting value of the accumulator. Returns final accumulator value', () => {
-    const callback = (accumulator, item) => {
-      if(item[0].toUpperCase() === 'B') {
-        return accumulator += 1;
-      } else {return accumulator += 0;}
-    };
-
-    const array = ['charles', 'Ray', 'Liberty', 'doughnut', 'Broken'];
-    const expected = 4;
-    const actual = reduce(array, callback);
-
-    expect(actual).toEqual(expected);
+    
   });
 });
 

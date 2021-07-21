@@ -19,21 +19,6 @@ const filter = (array, callback) => {
   return trueArray;
 };
 
-const findIndex = (array, callback) => {
-  let index = 0;
-  for(const item of array){
-    if(callback(item) !== true)
-      index++;
-    if(callback(item) === true)
-      return index;
-    if(!item)
-      return -1;
-  } 
-
-  
-
-};
-
 //my initial thought process with findIndex, but how to work the callback function in???
 /* function findIndex(array, targetIndex) {
   for(let value in array){
@@ -44,15 +29,22 @@ const findIndex = (array, callback) => {
   return -1;
 }*/
 
-const reduce = (array, callback, initialValue) => {
-  let accumulator = initialValue;
+const findIndex = (array, callback) => {
+  let index = 0;
+  for(const item of array){
+    if(callback(item) !== true)
+      index++;
+    if(callback(item) === true)
+      return index;
+    if(!item)
+      return -1;
+  } 
+};
 
-  for(let item = 0; item < array.length; item++) {
-    if(array[item]) {
-      accumulator = callback(accumulator, array[item]);
-    }
-  }
-  return accumulator;
+
+
+const reduce = (array, callback, initialValue) => {
+  
 };
 
 const every = (array, callback) => {
