@@ -51,11 +51,7 @@ const reduce = (array, callback, initialValue) => {
       accumulator = callback(accumulator, item);
     }
     return accumulator;
-  } else {
-    
-  }
-  
-  
+  } 
 };
 
 const every = (array, callback) => {
