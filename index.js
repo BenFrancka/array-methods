@@ -24,7 +24,14 @@ const findIndex = (array, callback) => {
   for(const item of array){
     if(callback(item) !== true)
       index++;
-  }
+    if(callback(item) === true)
+      return index;
+    if(!item)
+      return -1;
+  } 
+
+  
+
 };
 
 //my initial thought process with findIndex, but how to work the callback function in???
@@ -37,8 +44,18 @@ const findIndex = (array, callback) => {
   return -1;
 }*/
 
+const reduce = (array, callback, initialValue) => {
+  let accumulator = initialValue;
+
+  for(let item = 0; item < array.length; item++) {
+    if(array[item]) {
+      accumulator = callback(accumulator, array[item]);
+    }
+  }
+  return accumulator;
+};
+
 const every = (array, callback) => {
-  
   for(const item of array){
     const newItem = callback(item);
     if(newItem){
@@ -51,5 +68,6 @@ module.exports = {
   map,
   filter,
   findIndex,
-  every
+  every,
+  reduce
 };
