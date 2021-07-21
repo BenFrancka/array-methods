@@ -1,6 +1,8 @@
 const {
   map,
-  filter
+  filter,
+  findIndex,
+  every
 } = require('./index');
 
 describe('map', () => {
@@ -23,6 +25,34 @@ describe('filter', () => {
     const arr = ['bob', 'ben'];
     const expected = ['bob', 'ben'];
     const actual = filter(arr, callback);
+  
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('findIndex', () => {
+  it('takes an array and a callback and returns the index of the first item whose callback returns true.', () => {
+    const callback = (item) => {
+      if(item === 3)
+        return true;
+    };
+    const array = [1, 2, 3, 4];
+    const expected = 2;
+    const actual = findIndex(array, callback);
+    
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('every', () => {
+  it('takes an array and a callback and returns true if every item in the array is true, otherwise returns false.', () => {
+    const callback = (item) => {
+      if(item.startsWith('b') === true)
+        return true;
+    };
+    const arr = ['bob', 'ben'];
+    const expected = true;
+    const actual = every(arr, callback);
   
     expect(actual).toEqual(expected);
   });

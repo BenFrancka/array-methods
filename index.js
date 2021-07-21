@@ -19,7 +19,37 @@ const filter = (array, callback) => {
   return trueArray;
 };
 
+const findIndex = (array, callback) => {
+  for(const item of array){
+    if(callback(item) === true)
+      return array.length[item];
+    //else return -1;
+  }
+};
+
+//my initial thought process with findIndex, but how to work the callback function in???
+/* function findIndex(array, targetIndex) {
+  for(let value in array){
+    if(array[value] === target){
+      return value;
+    }
+  }
+  return -1;
+}*/
+
+const every = (array, callback) => {
+  
+  for(const item of array){
+    const newItem = callback(item);
+    if(newItem){
+      return true;
+    } else return false;
+  }
+};
+
 module.exports = { 
   map,
-  filter 
+  filter,
+  findIndex,
+  every
 };
