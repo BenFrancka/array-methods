@@ -48,7 +48,14 @@ describe('findIndex', () => {
 
 describe('reduce', () => {
   it('takes an array, callback, and initial value that is the starting value of the accumulator. Returns final accumulator value', () => {
-    
+    const array = [1, 2, 3, 4];
+    const callback = (accumulator, item) => {
+      return accumulator + item;
+    };
+    const expected = 10;
+    const actual = reduce(array, callback);
+
+    expect(actual).toEqual(expected);
   });
 });
 

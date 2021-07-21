@@ -36,7 +36,7 @@ const findIndex = (array, callback) => {
       index++;
     if(callback(item) === true)
       return index;
-    if(!item)
+    if(!(item))
       return -1;
   } 
 };
@@ -44,6 +44,17 @@ const findIndex = (array, callback) => {
 
 
 const reduce = (array, callback, initialValue) => {
+  if(!(initialValue)){
+    let accumulator = array[0];
+    for (let index = 1; index < array.length; index++) {
+      const item = array[index];
+      accumulator = callback(accumulator, item);
+    }
+    return accumulator;
+  } else {
+    
+  }
+  
   
 };
 
