@@ -1,5 +1,6 @@
 const {
-  map
+  map,
+  filter
 } = require('./index');
 
 describe('map', () => {
@@ -12,3 +13,18 @@ describe('map', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+describe('filter', () => {
+  it('takes an array and a callback and returns a new array with all items whose callback returned true.', () => {
+    const callback = (item) => {
+      if(item.startsWith('b') === true)
+        return item;
+    };
+    const arr = ['bob', 'ben'];
+    const expected = ['bob', 'ben'];
+    const actual = filter(arr, callback);
+  
+    expect(actual).toEqual(expected);
+  });
+});
+

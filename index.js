@@ -8,6 +8,18 @@ const map = (array, callback) => {
   return newArray;
 };
 
+const filter = (array, callback) => {
+  let trueArray = [];
+  for(const item of array){
+    const newItem = callback(item);
+    if(newItem) {
+      trueArray = [...trueArray, newItem];
+    }
+  }
+  return trueArray;
+};
 
-
-module.exports = { map };
+module.exports = { 
+  map,
+  filter 
+};
